@@ -40,10 +40,10 @@
             highlightLayer.openPopup();
         }
         var map = L.map('map', {
-            zoomControl:true, maxZoom:28, minZoom:1
+            zoomControl:true, maxZoom:21, minZoom:1
         }).fitBounds([[12.9776198151,77.5873494877],[12.9786572151,77.5892011834]]);
         var hash = new L.Hash(map);
-        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        map.attributionControl.addAttribution('<a href="https://github.com" target="_blank">web</a>');
         L.control.locate().addTo(map);
         var measureControl = new L.Control.Measure({
             primaryLengthUnit: 'meters',
@@ -53,9 +53,9 @@
         });
         measureControl.addTo(map);
         var bounds_group = new L.featureGroup([]);
-        var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-            maxZoom: 28
+        var basemap0 = L.tileLayer('http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}', {
+            attribution: 'Imagery © <a href="http://maps.google.com">Google</a>',
+            maxZoom: 21
         });
         basemap0.addTo(map);
         function setBounds() {
