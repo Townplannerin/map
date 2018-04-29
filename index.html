@@ -90,7 +90,7 @@
         map.addLayer(GoogleStreet);
         var baseMaps = {'GoogleStreet': GoogleStreet,
             'GoogleSatellite': GoogleSatellite,
-            'GoogleHybrid': GoogleHybrid
+            'GoogleHybrid': GoogleHybrid,
             'bangExisting': BangExisting            
         };
         
@@ -145,6 +145,7 @@
         });
         bounds_group.addLayer(layer_SribayaluGanaptiTemple_0);
         map.addLayer(layer_SribayaluGanaptiTemple_0);
+        
         var osmGeocoder = new L.Control.OSMGeocoder({
             collapsed: true,
             position: 'topright',
@@ -152,6 +153,7 @@
         });
         setBounds();
         osmGeocoder.addTo(map);
+        
         var kmlLayer = new L.KML("Holelkere Gramatana.kml", {async: true});
                                                               
          kmlLayer.on("loaded", function(e) { 
