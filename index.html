@@ -153,12 +153,10 @@
         };
         
         var overlays = { };
-        L.control.layers(baseMaps, overlays,{'<img src="legend/SribayaluGanaptiTemple_0.png" /> Sri bayalu Ganapti Temple': layer_SribayaluGanaptiTemple_0,},{collapsed:true}).addTo(map);
-        
+        L.control.layers(baseMaps, {'<img src="legend/SribayaluGanaptiTemple_0.png" /> Sri bayalu Ganapti Temple': layer_SribayaluGanaptiTemple_0,},overlays,{collapsed:true}).addTo(map);
+        setBounds();
         var bangExisting = L.tileLayer('http://mapwarper.net/maps/tile/26003/{z}/{x}/{y}.png').addTo(map);
         layerControl.addOverlay(bangExisting , "Bangalore Existing");
-            
-        setBounds();
         </script>
     </body>
 </html>
