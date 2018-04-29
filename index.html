@@ -82,10 +82,16 @@
             attribution: 'Imagery © <a href="http://maps.google.com">Google</a>',
             maxZoom: 21
           })
+        var bangExisting =
+          L.tileLayer('http://mapwarper.net/maps/tile/26003/{z}/{x}/{y}.png', {
+            attribution: ' <a href=" "> </a>',
+            maxZoom: 21
+          })
         map.addLayer(GoogleStreet);
         var baseMaps = {'GoogleStreet': GoogleStreet,
             'GoogleSatellite': GoogleSatellite,
             'GoogleHybrid': GoogleHybrid
+            'bangExisting': BangExisting            
         };
         
         function setBounds() {
@@ -150,12 +156,9 @@
                                                               
          kmlLayer.on("loaded", function(e) { 
             map.fitBounds(e.target.getBounds());
-         });
-                                                
+         });                                    
         map.addLayer(kmlLayer);
-
-        var bangExisting = L.tileLayer('http://mapwarper.net/maps/tile/26003/{z}/{x}/{y}.png').addTo(map);
-        L.control.layers(baseMaps, {'<img src="legend/SribayaluGanaptiTemple_0.png" /> Sri bayalu Ganapti Temple': layer_SribayaluGanaptiTemple_0,}, bangExisting, {collapsed:true}).addTo(map);
+        L.control.layers(baseMaps, {'<img src="legend/SribayaluGanaptiTemple_0.png" /> Sri bayalu Ganapti Temple': layer_SribayaluGanaptiTemple_0,},{collapsed:true}).addTo(map);
         </script>
     </body>
 </html>
