@@ -6,7 +6,9 @@
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/L.Control.Locate.min.css">
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/Control.OSMGeocoder.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
@@ -24,7 +26,8 @@
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
-        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/L.Control.Locate.min.js"></script>
         <script src="js/leaflet.rotatedMarker.js"></script>
         <script src="js/leaflet.pattern.js"></script>
         <script src="js/leaflet-hash.js"></script>
@@ -78,11 +81,18 @@
             maxZoom: 21
           })
         var GoogleHybrid =
-          L.tileLayer('http://mapwarper.net/maps/tile/26003/{z}/{x}/{y}.png', {
+          L.tileLayer('http://www.google.com/maps/vt?lyrs=s,h@189&gl=com&x={x}&y={y}&z={z}', {
             attribution: 'Imagery © <a href="http://maps.google.com">Google</a>',
             maxZoom: 21
           })
         map.addLayer(GoogleStreet);
+        var Bengaluru =
+          L.tileLayer('http://mapwarper.net/maps/tile/26003/{z}/{x}/{y}.png', {
+            opacity: 0.45,
+            transparent: true,
+            attribution: 'Imagery © <a href=" ">Google</a>',
+            maxZoom: 21
+          }).addTo(map)
         function setBounds() {
         }
         function pop_SribayaluGanaptiTemple_0(feature, layer) {
@@ -140,18 +150,15 @@
             text: 'Search',
         });
         osmGeocoder.addTo(map);
-        var kmlLayer = new L.KML("Holelkere Gramatana.kml", {async: true});
-                                                              
-         kmlLayer.on("loaded", function(e) { 
-            map.fitBounds(e.target.getBounds());
-         });
-                                                
-        map.addLayer(kmlLayer);
         var baseMaps = {'GoogleStreet': GoogleStreet,
             'GoogleSatellite': GoogleSatellite,
             'GoogleHybrid': GoogleHybrid
         };
-        L.control.layers(baseMaps,{'<img src="legend/SribayaluGanaptiTemple_0.png" /> Sri bayalu Ganapti Temple': layer_SribayaluGanaptiTemple_0,},{collapsed:true}).addTo(map);
+        var overlayLayers = {
+	        'Bengaluru': Bengaluru,
+	        '<img src="legend/SribayaluGanaptiTemple_0.png" /> Sri bayalu Ganapti Temple': layer_SribayaluGanaptiTemple_0
+        }
+        L.control.layers(baseMaps, overlayLayers,{collapsed:true}).addTo(map);
         setBounds();
         </script>
     </body>
