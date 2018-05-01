@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/Control.OSMGeocoder.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
+	<link rel="stylesheet" href="css/Control.Coordinates.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -38,6 +39,7 @@
         <script src="js/Control.OSMGeocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
         <script src="js/KML.js"></script>
+	<script src="js/Control.Coordinates.js"></script>
         <script src="data/SribayaluGanaptiTemple_0.js"></script>
         <script>
         var highlightLayer;
@@ -88,7 +90,7 @@
         map.addLayer(GoogleStreet);
         var Bengaluru =
           L.tileLayer('http://mapwarper.net/maps/tile/26003/{z}/{x}/{y}.png', {
-            opacity: 0.45,
+            opacity: 0.30,
             transparent: true,
             attribution: 'Imagery © <a href=" ">Google</a>',
             maxZoom: 21
@@ -150,6 +152,13 @@
             text: 'Search',
         });
         osmGeocoder.addTo(map);
+	var c = new L.Control.Coordinates();
+	c.addTo(map);
+
+	function onMapClick(e) {
+		c.setCoordinates(e);
+	}
+	map.on('click', onMapClick);
         var baseMaps = {'GoogleStreet': GoogleStreet,
             'GoogleSatellite': GoogleSatellite,
             'GoogleHybrid': GoogleHybrid
