@@ -89,10 +89,10 @@
           })
         map.addLayer(GoogleStreet);
         var Bengaluru =
-          L.tileLayer('http://mapwarper.net/maps/tile/26003/{z}/{x}/{y}.png', {
+          L.tileLayer('http://mapwarper.net/maps/tile/25970/{z}/{x}/{y}.png', {
             opacity: 0.30,
             transparent: true,
-            attribution: 'Imagery © <a href=" ">Google</a>',
+            attribution: 'Imagery © <a href=" ">BDA</a>',
             maxZoom: 21
           }).addTo(map)
         function popUp(feature, layer) {
