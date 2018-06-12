@@ -30,17 +30,17 @@ var highlightLayer;
         var bounds_group = new L.featureGroup([]);
         var GoogleStreet =
           L.tileLayer('http://www.google.com/maps/vt?lyrs=m@189&gl=com&x={x}&y={y}&z={z}', {
-            attribution: 'Imagery © <a href="http://maps.google.com">Google</a>',
+            attribution: 'Imagery Â© <a href="http://maps.google.com">Google</a>',
             maxZoom: 21
           })
         var GoogleSatellite =
           L.tileLayer('http://www.google.com/maps/vt?lyrs=s@189&gl=com&x={x}&y={y}&z={z}', {
-            attribution: 'Imagery © <a href="http://maps.google.com">Google</a>',
+            attribution: 'Imagery Â© <a href="http://maps.google.com">Google</a>',
             maxZoom: 21
           })
         var GoogleHybrid =
           L.tileLayer('http://www.google.com/maps/vt?lyrs=s,h@189&gl=com&x={x}&y={y}&z={z}', {
-            attribution: 'Imagery © <a href="http://maps.google.com">Google</a>',
+            attribution: 'Imagery Â© <a href="http://maps.google.com">Google</a>',
             maxZoom: 21
           })
         map.addLayer(GoogleStreet);
@@ -49,7 +49,7 @@ var highlightLayer;
             opacity: 0.30,
             transparent: true,
 	    tms: false,
-            attribution: 'Imagery © <a href=" ">A</a>',
+            attribution: 'Imagery Â© <a href=" ">A</a>',
             maxZoom: 16
           }).addTo(map)
         function popUp(feature, layer) {
@@ -79,4 +79,4 @@ var highlightLayer;
 	        'Bengaluru': Bengaluru,
 	        '<img src="legend/SribayaluGanaptiTemple_0.png" /> Sri bayalu Ganapti Temple': geojsonLayer
         }
-        L.control.layers(baseMaps, overlayLayers,{collapsed:true}).addTo(map);
+        L.control.layers(baseMaps, overlayLayers,{collapsed:false}).addTo(map);
