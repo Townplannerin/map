@@ -34,14 +34,7 @@ require([
       zoom: 16
     });
 
-    /****************************************************************
-     * Add feature layer - A FeatureLayer at minimum should point
-     * to a URL to a feature service or point to a feature collection 
-     * object.
-     ***************************************************************/
-
-    // Carbon storage of trees in Warren Wilson College.
-    var featureLayer = new FeatureLayer("https://maps.ksrsac.in/maps/rest/services/Cadastral/Cadastral_Cache/MapServer");
+    var featureLayer = new FeatureLayer("https://maps.ksrsac.in/maps/rest/services/Cadastral/Cadastral_Cache/MapServer/0");
 
     map.addLayer(featureLayer);
 
