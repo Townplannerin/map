@@ -43,7 +43,7 @@ var highlightLayer;
             attribution: 'Imagery © <a href="http://maps.google.com">Google</a>',
             maxZoom: 21
           })
-        map.addLayer(GoogleStreet);
+        map.addLayer(GoogleSatellite);
         var Bengaluru =
           L.tileLayer('data/BASE MAP Nayakanahatti/{z}/{x}/{y}.png', {
             opacity: 0.30,
@@ -76,7 +76,7 @@ var highlightLayer;
             'GoogleHybrid': GoogleHybrid
         };
         var overlayLayers = {
-	        'Bengaluru': Bengaluru,
+	        'Village': Bengaluru,
 	        '<img src="legend/SribayaluGanaptiTemple_0.png" /> Sri bayalu Ganapti Temple': geojsonLayer
         }
         L.control.layers(baseMaps, overlayLayers,{collapsed:false}).addTo(map);
