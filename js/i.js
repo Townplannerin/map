@@ -56,7 +56,7 @@ var highlightLayer;
     	layer.bindPopup(feature.properties.name);
   	}
 
-  	var geojsonLayer = new L.GeoJSON.AJAX("data/SriBayaluGanaptiTemple.geojson", {onEachFeature:popUp});
+  	var geojsonLayer = new L.GeoJSON.AJAX("data/SITE.geojson", {onEachFeature:popUp});
         geojsonLayer.addTo(map);
         var osmGeocoder = new L.Control.OSMGeocoder({
             collapsed: true,
