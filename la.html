@@ -44,16 +44,15 @@ function popUp(f,l){
         }
         l.bindPopup(out.join("<br />"));
     }
-}
-
+}
 var json = new L.GeoJSON.AJAX(["data/la.geojson"],{
     style: function(feature) {
         switch (feature.properties.Zone) {
             case 'res': return {color: "#FFFF00"};
             case 'ca':   return {color: "#FF0000"};
-	    case 'park': return {color: "#00FF00"};
+	    case 'park': return {color: "#00FF00"};
         }
-    },onEachFeature: popUp})
+    },onEachFeature: popUp})
 json.on('data:loaded', function() { 
 this.map.fitBounds(json.getBounds());
 json.addTo(this.map); }.bind(this));
@@ -69,4 +68,4 @@ var scale = L.control.scale(); // Creating scale control
          scale.addTo(map);
     </script>
 </body>
-</html>
+</html>
