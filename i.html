@@ -74,8 +74,10 @@ var scale = L.control.scale();
 }).addTo(map);
 
 map.attributionControl.setPrefix('');
+	
 var geojsonLayer = L.geoJSON(road);
 geojsonLayer.addTo(map);
+	
 var hash = new L.Hash(map);
 
 var baseMaps = {'GoogleStreet': GoogleStreet,
