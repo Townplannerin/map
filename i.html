@@ -77,14 +77,13 @@ map.attributionControl.setPrefix('');
 	
 var geojsonLayer = L.geoJSON(road);
 geojsonLayer.addTo(map);
-	
-var hash = new L.Hash(map);
-
 var baseMaps = {'GoogleStreet': GoogleStreet,
             'GoogleSatellite': GoogleSatellite,
             'GoogleHybrid': GoogleHybrid
         };
-        L.control.layers(baseMaps,{'Cadastral': sslr},{collapsed:true}).addTo(map);
+        L.control.layers(baseMaps,{'Cadastral': sslr,},{collapsed:true}).addTo(map);
+
+var hash = new L.Hash(map);
 </script>
 </body>
 </html>
