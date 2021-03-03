@@ -6,7 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Web application">
 <meta name="author" content="Saikprajwal">
-<title>Sample</title>
+<title>Sample</title>
+
 
     <!-- Load Leaflet from CDN -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
@@ -109,19 +110,17 @@ L.Control.Coordinates = L.Control.extend({
 .leaflet-control-coordinates-lng {
 	padding-left: 5px;
 }
-.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="http://ljagis.github.io/leaflet-measure/leaflet-measure.css">
 <link rel="stylesheet" href="https://rawgit.com/k4r573n/leaflet-control-osm-geocoder/master/Control.OSMGeocoder.css" />
 </head>
 <body>
-
 <div id="map"></div>
-
 <script>
 var map = L.map("map").setView([12.9801708, 77.5730896], 10);
-
 var legend = L.control();
 	legend.onAdd = function (map) {
 		div = L.DomUtil.create( 'div', 'info legend' );
@@ -129,10 +128,8 @@ var legend = L.control();
 		return div;
 	};
 	legend.addTo(map);
-
 var scale = L.control.scale();
          scale.addTo(map);
-
 	var GoogleStreet =
           L.tileLayer('http://www.google.com/maps/vt?lyrs=m@189&gl=com&x={x}&y={y}&z={z}', {
             attribution: 'Map data &copy;2019 <a href="http://maps.google.com">Google</a> | Terms of Use',
@@ -149,18 +146,15 @@ var scale = L.control.scale();
             maxZoom: 21
           })
         map.addLayer(GoogleStreet);
-
-  var sslr = L.esri.tiledMapLayer({
-  url: 'https://kgis.ksrsac.in/kgismaps1/rest/services/CadastralData_Admin/Cached_CadastralData_Admin/MapServer'
+var sslr = L.esri.tiledMapLayer({
+url: 'https://kgis.ksrsac.in/kgismaps1/rest/services/CadastralData_Admin/Cached_CadastralData_Admin/MapServer'
 }).addTo(map);
-
 map.attributionControl.setPrefix('');
-
 var baseMaps = {'GoogleStreet': GoogleStreet,
             'GoogleSatellite': GoogleSatellite,
             'GoogleHybrid': GoogleHybrid
         };
-        L.control.layers(baseMaps,{'Cadastral': sslr,},{collapsed:true}).addTo(map);
+L.control.layers(baseMaps,{'Cadastral': sslr,},{collapsed:true}).addTo(map);
 
 	var c = new L.Control.Coordinates();
 		c.addTo(map);
@@ -170,9 +164,6 @@ var baseMaps = {'GoogleStreet': GoogleStreet,
 		}
 
 		map.on('click', onMapClick);
-
-
-
 var measureControl = new L.Control.Measure({
             primaryLengthUnit: 'meters',
             secondaryLengthUnit: 'kilometers',
@@ -180,13 +171,9 @@ var measureControl = new L.Control.Measure({
             secondaryAreaUnit: 'acres'
         });
         measureControl.addTo(map);
-
 var osmGeocoder = new L.Control.OSMGeocoder({placeholder: 'Search location...'});
-
 map.addControl(osmGeocoder);
-
-var hash = new L.Hash(map);
+var hash = new L.Hash(map);
 </script>
-
 </body>
 </html>
