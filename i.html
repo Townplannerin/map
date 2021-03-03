@@ -6,7 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Web application">
 <meta name="author" content="Saikprajwal">
-<title>Sample</title>
+<title>Sample</title>
+
 
     <!-- Load Leaflet from CDN -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
@@ -110,7 +111,8 @@ L.Control.Coordinates = L.Control.extend({
 .leaflet-control-coordinates-lng {
 	padding-left: 5px;
 }
-.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="http://ljagis.github.io/leaflet-measure/leaflet-measure.css">
@@ -184,7 +186,8 @@ var osmGeocoder = new L.Control.OSMGeocoder({placeholder: 'Search location...'})
 
 map.addControl(osmGeocoder);
 
-var hash = new L.Hash(map);var geojsonLayer = L.geoJSON(road);
+var hash = new L.Hash(map);
+var geojsonLayer = L.geoJSON(road);
 geojsonLayer.addTo(map);
 </script>
 
