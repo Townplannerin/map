@@ -22,7 +22,7 @@
     <script src="https://unpkg.com/esri-leaflet@2.2.3/dist/esri-leaflet.js"
     integrity="sha512-YZ6b5bXRVwipfqul5krehD9qlbJzc6KOGXYsDjU9HHXW2gK57xmWl2gU6nAegiErAqFXhygKIsWPKbjLPXVb2g=="
     crossorigin=""></script>
-
+<script src="http://ljagis.github.io/leaflet-measure/leaflet-measure.js"></script>
 <script src="data/road.js"></script>
 <script src="http://mlevans.com/leaflet-hash/javascripts/leaflet-hash.js"></script>
 <style>
@@ -33,6 +33,7 @@
 
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="http://ljagis.github.io/leaflet-measure/leaflet-measure.css">
 </head>
 <body>
 
@@ -84,6 +85,15 @@ var baseMaps = {'GoogleStreet': GoogleStreet,
         L.control.layers(baseMaps,{'Cadastral': sslr,},{collapsed:true}).addTo(map);
 
 var hash = new L.Hash(map);
+var scale = L.control.scale();
+         scale.addTo(map);
+var measureControl = new L.Control.Measure({
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'acres'
+        });
+        measureControl.addTo(map);
 </script>
 </body>
 </html>
