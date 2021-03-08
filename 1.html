@@ -126,6 +126,21 @@ var legend = L.control();
 	legend.addTo(map);
 	var scale = L.control.scale();
          scale.addTo(map);
+	var c = new L.Control.Coordinates();
+		c.addTo(map);
+
+		function onMapClick(e) {
+			c.setCoordinates(e);
+		}
+
+		map.on('click', onMapClick);
+	var measureControl = L.Control.Measure({
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'acres'
+        });
+	measureControl.addTo(map);
 
 	var GoogleStreet =
           L.tileLayer('http://www.google.com/maps/vt?lyrs=m@189&gl=com&x={x}&y={y}&z={z}', {
@@ -158,21 +173,6 @@ var baseMaps = {'GoogleStreet': GoogleStreet,
 		'OSM': OSM
         };
 L.control.layers(baseMaps,{'Cadastral': sslr,},{collapsed:true}).addTo(map);
-var measureControl = L.Control.Measure({
-            primaryLengthUnit: 'meters',
-            secondaryLengthUnit: 'kilometers',
-            primaryAreaUnit: 'sqmeters',
-            secondaryAreaUnit: 'acres'
-        });
-	measureControl.addTo(map);
-	var c = new L.Control.Coordinates();
-		c.addTo(map);
-
-		function onMapClick(e) {
-			c.setCoordinates(e);
-		}
-
-		map.on('click', onMapClick);
 </script>
 </body>
 </html>
