@@ -24,8 +24,6 @@
 <link rel="stylesheet" href="http://ljagis.github.io/leaflet-measure/leaflet-measure.css">
 <script src="http://ljagis.github.io/leaflet-measure/leaflet-measure.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 <script>
 L.Control.Coordinates = L.Control.extend({
 	options: {
@@ -126,6 +124,8 @@ var legend = L.control();
 		return div;
 	};
 	legend.addTo(map);
+	var scale = L.control.scale();
+         scale.addTo(map);
 
 	var GoogleStreet =
           L.tileLayer('http://www.google.com/maps/vt?lyrs=m@189&gl=com&x={x}&y={y}&z={z}', {
@@ -158,13 +158,13 @@ var baseMaps = {'GoogleStreet': GoogleStreet,
 		'OSM': OSM
         };
 L.control.layers(baseMaps,{'Cadastral': sslr,},{collapsed:true}).addTo(map);
-var measureControl = new L.Control.Measure({
+var measureControl = L.Control.Measure({
             primaryLengthUnit: 'meters',
             secondaryLengthUnit: 'kilometers',
             primaryAreaUnit: 'sqmeters',
             secondaryAreaUnit: 'acres'
         });
-        measureControl.addTo(map);
+	measureControl.addTo(map);
 	var c = new L.Control.Coordinates();
 		c.addTo(map);
 
@@ -173,10 +173,6 @@ var measureControl = new L.Control.Measure({
 		}
 
 		map.on('click', onMapClick);
-
-	var scale = L.control.scale();
-         scale.addTo(map);
-	L.Control.geocoder().addTo(map);
 </script>
 </body>
 </html>
