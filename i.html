@@ -39,7 +39,13 @@ integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgB
 
 <script>
 var map = L.map("map").setView([12.9801708, 77.5730896], 10);
-
+var measureControl = new L.Control.Measure({
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'acres'
+        });
+measureControl.addTo(map);
 var legend = L.control();
 	legend.onAdd = function (map) {
 		div = L.DomUtil.create( 'div', 'info legend' );
@@ -82,23 +88,7 @@ var baseMaps = {'GoogleStreet': GoogleStreet,
 var hash = new L.Hash(map);
 var scale = L.control.scale();
          scale.addTo(map);
-var measureControl = new L.Control.Measure({
-            primaryLengthUnit: 'meters',
-            secondaryLengthUnit: 'kilometers',
-            primaryAreaUnit: 'sqmeters',
-            secondaryAreaUnit: 'acres'
-        });
-measureControl.addTo(map);
-document.getElementsByClassName('leaflet-control-measure-toggle')[0]
-        .innerHTML = '';
-        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
-        .className += ' fas fa-ruler';
-        var bounds_group = new L.featureGroup([]);
-        function setBounds() {
-            if (bounds_group.getLayers().length) {
-                map.fitBounds(bounds_group.getBounds());
-            }
-        }
+
 </script>
 </body>
 </html>
