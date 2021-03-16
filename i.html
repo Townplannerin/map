@@ -48,9 +48,6 @@ var legend = L.control();
 	};
 	legend.addTo(map);
 
-var scale = L.control.scale();
-         scale.addTo(map);
-
 	var GoogleStreet =
           L.tileLayer('http://www.google.com/maps/vt?lyrs=m@189&gl=com&x={x}&y={y}&z={z}', {
             attribution: 'Map data &copy;2019 <a href="http://maps.google.com">Google</a> | Terms of Use',
@@ -81,10 +78,7 @@ var baseMaps = {'GoogleStreet': GoogleStreet,
             'GoogleHybrid': GoogleHybrid
         };
         L.control.layers(baseMaps,{'Cadastral': sslr,},{collapsed:true}).addTo(map);
-
-var hash = new L.Hash(map);
-var scale = L.control.scale();
-         scale.addTo(map);
+	
 var measureControl = new L.Control.Measure({
             primaryLengthUnit: 'meters',
             secondaryLengthUnit: 'kilometers',
@@ -92,6 +86,10 @@ var measureControl = new L.Control.Measure({
             secondaryAreaUnit: 'acres'
         });
         measureControl.addTo(map);
+	
+var hash = new L.Hash(map);
+var scale = L.control.scale();
+         scale.addTo(map);
 </script>
 </body>
 </html>
