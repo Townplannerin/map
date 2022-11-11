@@ -61,7 +61,6 @@
             'GoogleHybrid': GoogleHybrid
         };
         var overlayLayers = {
-	        'Village': Bengaluru,
 	        '<img src="legend/SribayaluGanaptiTemple_0.png" /> Sri bayalu Ganapti Temple': geojsonLayer
         }
         L.control.layers(baseMaps, overlayLayers,{collapsed:true}).addTo(map);
